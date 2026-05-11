@@ -101,26 +101,3 @@
   transform: translateX(4px);
 }
 
-.hero__scroll-indicator {
-  position: absolute;
-  bottom: var(--space-4);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-1);
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  animation: fadeIn 1s ease-out 1.2s both;
-}
-
-.hero__scroll-indicator svg {
-  animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
