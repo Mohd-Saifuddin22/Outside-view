@@ -1,0 +1,53 @@
+.day-night-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: rgba(30, 33, 33, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  transition: all var(--transition-fast);
+}
+
+.day-night-toggle:hover {
+  background: var(--color-surface);
+  border-color: var(--color-gold);
+}
+
+.day-night-toggle__icons {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.day-night-toggle__sun,
+.day-night-toggle__moon {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--transition-medium), transform var(--transition-medium);
+}
+
+.day-night-toggle__icons.day .day-night-toggle__sun {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.day-night-toggle__icons.day .day-night-toggle__moon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.day-night-toggle__icons.night .day-night-toggle__sun {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.day-night-toggle__icons.night .day-night-toggle__moon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.day-night-toggle__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
