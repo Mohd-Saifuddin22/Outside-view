@@ -6,7 +6,7 @@ export const projects = [
     location: 'Marina District, Downtown',
     priceRange: '$2.5M - $8M',
     status: 'Under Construction',
-    thumbnail: '/assets/building.png',
+    thumbnail: '/assets/card1.jpg',
     isReal: true,
   },
   {
@@ -16,7 +16,7 @@ export const projects = [
     location: 'Green Park Avenue, Uptown',
     priceRange: '$1.8M - $4.5M',
     status: 'Pre-Launch',
-    thumbnail: '/assets/building.png',
+    thumbnail: '/assets/card2.webp',
     isReal: false,
   },
   {
@@ -26,7 +26,7 @@ export const projects = [
     location: 'Financial District, Central',
     priceRange: '$3M - $12M',
     status: 'Planning Phase',
-    thumbnail: '/assets/building.png',
+    thumbnail: '/assets/card3.avif',
     isReal: false,
   },
   {
@@ -36,7 +36,7 @@ export const projects = [
     location: 'Coastal Boulevard, Waterfront',
     priceRange: '$4M - $15M',
     status: 'Under Construction',
-    thumbnail: '/assets/building.png',
+    thumbnail: '/assets/card4.webp',
     isReal: false,
   },
   {
@@ -46,7 +46,7 @@ export const projects = [
     location: 'Innovation Quarter, Eastside',
     priceRange: '$1.5M - $3.5M',
     status: 'Pre-Launch',
-    thumbnail: '/assets/building.png',
+    thumbnail: '/assets/card5.jpg',
     isReal: false,
   },
 ];
