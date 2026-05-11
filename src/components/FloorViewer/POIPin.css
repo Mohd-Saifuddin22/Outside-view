@@ -1,0 +1,68 @@
+.poi-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.poi-pin__dot {
+  width: 14px;
+  height: 14px;
+  background: var(--poi-color);
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+  position: relative;
+  z-index: 2;
+}
+
+.poi-pin__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: var(--poi-color);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.poi-pin__tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-1) var(--space-2);
+  white-space: nowrap;
+  z-index: 100;
+  animation: fadeIn 200ms ease-out;
+}
+
+.poi-pin__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--color-surface);
+}
+
+.poi-pin__tooltip-name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.poi-pin__tooltip-category {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--poi-color);
+  text-transform: capitalize;
+  margin-top: 2px;
+}
