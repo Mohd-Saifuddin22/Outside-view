@@ -1,0 +1,30 @@
+.footer {
+  padding: var(--space-5) var(--space-4);
+  background: var(--color-surface);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.footer__brand {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.footer__divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.footer__tagline {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+}
