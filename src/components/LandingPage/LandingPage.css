@@ -1,0 +1,51 @@
+.landing-page {
+  min-height: 100vh;
+}
+
+/* ===== Floor Selector Section ===== */
+.floor-selector {
+  padding: var(--space-7) var(--space-4);
+  background: var(--color-bg);
+}
+
+.floor-selector__header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.floor-selector__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+}
+
+.floor-selector__subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.floor-selector__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.floor-selector__card-wrapper {
+  animation: fadeInUp 600ms ease-out both;
+}
+
+@media (max-width: 900px) {
+  .floor-selector__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .floor-selector__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
