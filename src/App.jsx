@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { LandingPage } from './components/LandingPage/LandingPage';
 import { ProjectsPage } from './components/ProjectsPage/ProjectsPage';
 import { FloorViewer } from './components/FloorViewer/FloorViewer';
+import { FloorPickerModal } from './components/FloorPickerModal/FloorPickerModal';
 import { useImagePreloader } from './hooks/useImagePreloader';
 import { floors } from './data/floors';
 import './App.css';
@@ -9,6 +10,7 @@ import './App.css';
 function App() {
   const [view, setView] = useState('landing'); // 'landing' | 'projects' | 'viewer'
   const [selectedFloor, setSelectedFloor] = useState(null);
+  const [showFloorPicker, setShowFloorPicker] = useState(false);
 
   // Collect all image paths for preloading
   const allImagePaths = useMemo(() => {
@@ -23,12 +25,19 @@ function App() {
   };
 
   const handleSelectProject = (project) => {
-    // For the real project, go to floor viewer
-    // For demo purposes, all projects lead to floor viewer with default floor
     if (project.isReal) {
-      setSelectedFloor(floors[0]);
-      setView('viewer');
+      setShowFloorPicker(true);
     }
+  };
+
+  const handleFloorSelect = (floor) => {
+    setShowFloorPicker(false);
+    setSelectedFloor(floor);
+    setView('viewer');
+  };
+
+  const handleFloorPickerClose = () => {
+    setShowFloorPicker(false);
   };
 
   const handleBackToLanding = () => {
@@ -39,20 +48,35 @@ function App() {
     setView('projects');
   };
 
-  if (view === 'viewer' && selectedFloor) {
-    return <FloorViewer floor={selectedFloor} onBack={handleBackToProjects} />;
-  }
+  const getView = () => {
+    if (view === 'viewer' && selectedFloor) {
+      return <FloorViewer floor={selectedFloor} onBack={handleBackToProjects} />;
+    }
 
-  if (view === 'projects') {
-    return (
-      <ProjectsPage
-        onSelectProject={handleSelectProject}
-        onBack={handleBackToLanding}
-      />
-    );
-  }
+    if (view === 'projects') {
+      return (
+        <ProjectsPage
+          onSelectProject={handleSelectProject}
+          onBack={handleBackToLanding}
+        />
+      );
+    }
 
-  return <LandingPage onExplore={handleExplore} />;
+    return <LandingPage onExplore={handleExplore} />;
+  };
+
+  return (
+    <>
+      {getView()}
+      {showFloorPicker && (
+        <FloorPickerModal
+          isOpen={showFloorPicker}
+          onClose={handleFloorPickerClose}
+          onSelectFloor={handleFloorSelect}
+        />
+      )}
+    </>
+  );
 }
 
 export default App;
